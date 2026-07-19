@@ -4,7 +4,7 @@ import pandas_work
 
 
 def build_guest_line(row):
-    name = f"{row['first_name']} {row['second_name']}"
+    name = f"{row['second_name']} {row['first_name']}"
     if row["guests"] == 2:
         name += " és partnere"
     return name
