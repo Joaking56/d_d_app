@@ -3,7 +3,7 @@ import streamlit as st
 
 
 def get_base64_image(image_path):
-    with open("static/bg.jpg", "rb") as f:
+    with open(image_path, "rb") as f:
         data = f.read()
     return base64.b64encode(data).decode()
 
