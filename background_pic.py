@@ -8,19 +8,24 @@ def get_base64_image(image_path):
     return base64.b64encode(data).decode()
 
 
-def set_background(image_path, opacity=0.5, overlay_color="14, 17, 23", size="cover"):
+def set_background(image_path, opacity=0.5, size="cover"):
     bg_image = get_base64_image(image_path)
     st.markdown(
         f"""
         <style>
-        .stApp {{
-            background-image:
-                linear-gradient(rgba({overlay_color}, {opacity}), rgba({overlay_color}, {opacity})),
-                url("data:image/jpg;base64,{bg_image}");
+        .stApp::before {{
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/jpg;base64,{bg_image}");
             background-size: {size};
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            opacity: {opacity};
+            z-index: -1;
         }}
         </style>
         """,

@@ -12,7 +12,7 @@ def build_guest_line(row):
 
 
 database_handling.init_db()
-background_pic.set_background("background.jpg", opacity=0.2, size="35%")
+background_pic.set_background("background.jpg", opacity=0.8, size="35%")
 st.title("Dotti & Donát Esküvője")
 st.subheader("Vendéglista Regisztráció")
 
