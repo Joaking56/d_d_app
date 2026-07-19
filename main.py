@@ -35,7 +35,7 @@ else:
 
 df = pandas_work.create_df()
 guest_count = pandas_work.summ_guests(df)
-guest_names = df["first_name"] + " " + df["second_name"]
+guest_names = df["second_name"] + " " + df["first_name"]
 guest_list_html = "<br>".join(guest_names.tolist())
 
 st.markdown(
