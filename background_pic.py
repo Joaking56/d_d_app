@@ -13,6 +13,9 @@ def set_background(image_path, opacity=0.5, size="cover"):
     st.markdown(
         f"""
         <style>
+        .stApp {{
+            background-color: transparent;
+        }}
         .stApp::before {{
             content: "";
             position: fixed;
