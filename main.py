@@ -3,6 +3,13 @@ import database_handling
 import pandas_work
 
 
+def build_guest_line(row):
+    name = f"{row['first_name']} {row['second_name']}"
+    if row["guests"] == 2:
+        name += " és meghívottja"
+    return name
+
+
 database_handling.init_db()
 st.title("Dotti & Donát Esküvője")
 st.subheader("Vendéglista Regisztráció")
@@ -30,12 +37,12 @@ if not st.session_state.registered:
             else:
                 st.error("Kérlek töltsd ki a név mezőt!")
 else:
-    st.success("Regisztráció sikeres! Köszönjük! 🎉")
+    st.success("Regisztráció sikeres! Köszönjük!")
 
 
 df = pandas_work.create_df()
 guest_count = pandas_work.summ_guests(df)
-guest_names = df["second_name"] + " " + df["first_name"]
+guest_names = df.apply(build_guest_line, axis=1)
 guest_list_html = "<br>".join(guest_names.tolist())
 
 st.markdown(
