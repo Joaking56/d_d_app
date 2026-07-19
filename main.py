@@ -1,6 +1,7 @@
 import streamlit as st
 import database_handling
 import pandas_work
+import background_pic
 
 
 def build_guest_line(row):
@@ -11,6 +12,7 @@ def build_guest_line(row):
 
 
 database_handling.init_db()
+background_pic.set_background("background.jpg", opacity=0.4)
 st.title("Dotti & Donát Esküvője")
 st.subheader("Vendéglista Regisztráció")
 
