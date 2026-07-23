@@ -14,6 +14,8 @@ def build_guest_line(row):
 database_handling.init_db()
 background_pic.set_background("static/bg.jpg", opacity=0.2, size="35%")
 st.title("Dotti & Donát Esküvője")
+st.subheader("Mikor?")
+st.image("static/911.gif")
 st.subheader("Vendéglista Regisztráció")
 
 if "registered" not in st.session_state:
